@@ -128,7 +128,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Flowchart sap:VirtualizedContainerService.HintSize="634,660" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart sap:VirtualizedContainerService.HintSize="866.6666666666666,275.65666666666664" sap2010:WorkflowViewState.IdRef="Flowchart_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -164,7 +164,7 @@
                     <OutArgument x:TypeArguments="upr:IResource">[ConfigFile]</OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="upr:IResource">[LocalResource.FromPath("C:\Users\user\Documents\NYP Mods Y3S1\FYP\Phase 2 files\RPA Configuration\RPA Config.xlsx")]</InArgument>
+                    <InArgument x:TypeArguments="upr:IResource">[LocalResource.FromPath("C:\RPA\RPA - PLCFoodPanda\RPA Configuration\RPA Config.xlsx")]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
