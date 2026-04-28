@@ -1,7 +1,7 @@
-﻿{
+{
   "name": "FoodPanda",
   "projectId": "8acff266-e90b-4aa7-8529-8b1cdc73181c",
-  "description": "Blank Process",
+  "description": "PLC RPA for FoodPanda",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[3.5.1]",

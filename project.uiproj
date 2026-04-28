@@ -1,6 +1,6 @@
 {
-  "Name": "Phase 2",
+  "Name": "FoodPanda",
   "ProjectType": "Process",
-  "Description": "Blank Process",
+  "Description": "PLC RPA for FoodPanda",
   "MainFile": "Main.xaml"
 }
