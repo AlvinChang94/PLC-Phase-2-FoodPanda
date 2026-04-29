@@ -112,7 +112,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="860.6666666666666,682.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="803,683" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="OutConfig" />
       <Variable x:TypeArguments="sd:DataTable" Name="ConfigDT" />
@@ -128,7 +128,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Flowchart sap:VirtualizedContainerService.HintSize="866.6666666666666,275.65666666666664" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart sap:VirtualizedContainerService.HintSize="809,370.65666666666664" sap2010:WorkflowViewState.IdRef="Flowchart_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -149,14 +149,14 @@
             <av:PointCollection x:Key="ConnectorLocation">245,50 275,50</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence sap2010:Annotation.AnnotationText="Read config excel file, then generate config dictionary" DisplayName="Config File Sequence" sap:VirtualizedContainerService.HintSize="1146.6666666666667,3826.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence sap2010:Annotation.AnnotationText="Read config excel file, then generate config dictionary" DisplayName="Config File Sequence" sap:VirtualizedContainerService.HintSize="1146.5,3825" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:MultipleAssign sap2010:Annotation.AnnotationText="Assign RPA Configurations excel file to a variable&#xA;&#xA;Assign the sheet of the excel file to a variable" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1112.6666666666667,241.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+          <ui:MultipleAssign sap2010:Annotation.AnnotationText="Assign RPA Configurations excel file to a variable&#xA;&#xA;Assign the sheet of the excel file to a variable" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1112.5,241.5" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -164,7 +164,7 @@
                     <OutArgument x:TypeArguments="upr:IResource">[ConfigFile]</OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="upr:IResource">[LocalResource.FromPath("C:\RPA\RPA - PLCFoodPanda\RPA Configuration\RPA Config.xlsx")]</InArgument>
+                    <InArgument x:TypeArguments="upr:IResource">[LocalResource.FromPath("C:\Users\user\Documents\NYP Mods Y3S1\FYP\Phase 2 files\RPA Configuration\RPA Config.xlsx")]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -185,7 +185,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:MultipleAssign>
-          <Assign sap2010:Annotation.AnnotationText="Create a new dictionary and initialize it" sap:VirtualizedContainerService.HintSize="1112.6666666666667,207.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign sap2010:Annotation.AnnotationText="Create a new dictionary and initialize it" sap:VirtualizedContainerService.HintSize="1112.5,207" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[OutConfig]</OutArgument>
             </Assign.To>
@@ -200,8 +200,8 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[ConfigDT]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="1112.6666666666667,229.33333333333334" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[ConfigSheet]" WorkbookPathResource="[ConfigFile]" />
-          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Loop through the contents of the data table" DataTable="[ConfigDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1112.6666666666667,502.6666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+          <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[ConfigDT]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="1112.5,228.5" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[ConfigSheet]" WorkbookPathResource="[ConfigFile]" />
+          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Loop through the contents of the data table" DataTable="[ConfigDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1112.5,502" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
                 <ActivityAction.Argument>
@@ -772,6 +772,30 @@
       <x:Reference>__ReferenceID0</x:Reference>
       <x:Reference>__ReferenceID1</x:Reference>
       <x:Reference>__ReferenceID2</x:Reference>
+      <FlowStep>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">635,145</av:Point>
+            <av:Size x:Key="ShapeSize">110,70</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Sequence sap2010:Annotation.AnnotationText="" DisplayName="PLC POS Sales" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_80">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="ConfigFile" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="PLC POS sales - Invoke Workflow File (PLC POS sales.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="PLC POS sales.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[OutConfig]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </FlowStep>
     </Flowchart>
   </Sequence>
 </Activity>
