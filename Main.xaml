@@ -128,7 +128,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Flowchart sap:VirtualizedContainerService.HintSize="634,660" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart sap:VirtualizedContainerService.HintSize="809,427.65666666666664" sap2010:WorkflowViewState.IdRef="Flowchart_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -139,9 +139,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Flowchart.StartNode>
-        <x:Reference>__ReferenceID4</x:Reference>
+        <x:Reference>__ReferenceID5</x:Reference>
       </Flowchart.StartNode>
-      <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+      <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">135,15</av:Point>
@@ -735,10 +735,13 @@
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="In_Config">[OutConfig]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="In_ReconciliationFileName">[ReconciliationFileName]</InArgument>
+                        <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Year">[Benchmark_Year]</InArgument>
+                        <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Month">[Benchmark_Month]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:InvokeWorkflowFile>
@@ -748,9 +751,10 @@
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <av:Point x:Key="ShapeLocation">435,205</av:Point>
                             <av:Size x:Key="ShapeSize">110,70</av:Size>
+                            <av:PointCollection x:Key="ConnectorLocation">490,275 490,295</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Sequence sap2010:Annotation.AnnotationText="" DisplayName="PLC POS Sales" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_80">
+                        <Sequence sap2010:Annotation.AnnotationText="Populate column A-F of 'PLC POS Sales' using 'PandaShopSalesBreakdown' file" DisplayName="PLC POS Sales" sap:VirtualizedContainerService.HintSize="460,228" sap2010:WorkflowViewState.IdRef="Sequence_80">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="ConfigFile" />
                           </Sequence.Variables>
@@ -760,12 +764,50 @@
                               <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="PLC POS sales - Invoke Workflow File (PLC POS sales.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="PLC POS sales.xaml">
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="PLC POS sales - Invoke Workflow File (PLC POS sales.xaml)" sap:VirtualizedContainerService.HintSize="426,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="PLC POS sales.xaml">
                             <ui:InvokeWorkflowFile.Arguments>
                               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[OutConfig]</InArgument>
+                              <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Year">[Benchmark_Year]</InArgument>
+                              <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Month">[Benchmark_Month]</InArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                           </ui:InvokeWorkflowFile>
                         </Sequence>
+                        <FlowStep.Next>
+                          <FlowStep x:Name="__ReferenceID4">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">435,295</av:Point>
+                                <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">639.5,252.79121337073656 679.5,252.79121337073656</av:PointCollection>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence sap2010:Annotation.AnnotationText="Populate column A-H of 'UOB Bank' using 'Account Statements' file" DisplayName="UOB Bank" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_81">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:String" Name="ConfigFile" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="UOB Bank - Invoke Workflow File (UOB Bank.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="UOB Bank.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="In_Config">[OutConfig]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="In_ReconciliationFileName">[ReconciliationFileName]</InArgument>
+                                  <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Year">[Benchmark_Year]</InArgument>
+                                  <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Month">[Benchmark_Month]</InArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:InvokeWorkflowFile>
+                            </Sequence>
+                          </FlowStep>
+                        </FlowStep.Next>
                       </FlowStep>
                     </FlowStep.Next>
                   </FlowStep>
@@ -799,6 +841,7 @@
       <x:Reference>__ReferenceID1</x:Reference>
       <x:Reference>__ReferenceID2</x:Reference>
       <x:Reference>__ReferenceID3</x:Reference>
+      <x:Reference>__ReferenceID4</x:Reference>
     </Flowchart>
   </Sequence>
 </Activity>
