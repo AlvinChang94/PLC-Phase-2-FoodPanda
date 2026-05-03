@@ -112,7 +112,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="803,683" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="845,683" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="OutConfig" />
       <Variable x:TypeArguments="sd:DataTable" Name="ConfigDT" />
@@ -122,6 +122,7 @@
       <Variable x:TypeArguments="x:Int32" Name="Benchmark_Month" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_MonthDates" />
       <Variable x:TypeArguments="x:String" Name="ReconciliationFileName" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Mapping" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -391,7 +392,7 @@
                 <av:PointCollection x:Key="ConnectorLocation">385,50 435,50</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Check date range files" sap:VirtualizedContainerService.HintSize="548,4566.5" sap2010:WorkflowViewState.IdRef="Sequence_40">
+            <Sequence DisplayName="Check date range files" sap:VirtualizedContainerService.HintSize="554,5392" sap2010:WorkflowViewState.IdRef="Sequence_40">
               <Sequence.Variables>
                 <Variable x:TypeArguments="s:String[]" Name="StatementFiles" />
                 <Variable x:TypeArguments="x:String" Name="BenchmarkFile" />
@@ -406,8 +407,8 @@
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514,176" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;Check if config file is for FoodPanda or Grab&quot;]" />
-              <If Condition="[OutConfig(&quot;Running Process for Grab/FoodPanda&quot;).ToString.Trim.ToLower.Equals(&quot;g&quot;)]" sap:VirtualizedContainerService.HintSize="514,541" sap2010:WorkflowViewState.IdRef="If_21">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="520,176" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;Check if config file is for FoodPanda or Grab&quot;]" />
+              <If Condition="[OutConfig(&quot;Running Process for Grab/FoodPanda&quot;).ToString.Trim.ToLower.Equals(&quot;g&quot;)]" sap:VirtualizedContainerService.HintSize="520,541" sap2010:WorkflowViewState.IdRef="If_21">
                 <If.Then>
                   <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,174.5" sap2010:WorkflowViewState.IdRef="Sequence_72">
                     <sap:WorkflowViewStateService.ViewState>
@@ -429,8 +430,8 @@
                   </Sequence>
                 </If.Else>
               </If>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514,176" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Getting the Benchmark File &amp; Extract the Year/Month&quot;]" />
-              <Assign sap:VirtualizedContainerService.HintSize="514,176" sap2010:WorkflowViewState.IdRef="Assign_54">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="520,176" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Getting the Benchmark File &amp; Extract the Year/Month&quot;]" />
+              <Assign sap:VirtualizedContainerService.HintSize="520,176" sap2010:WorkflowViewState.IdRef="Assign_54">
                 <Assign.To>
                   <OutArgument x:TypeArguments="s:String[]">[StatementFiles]</OutArgument>
                 </Assign.To>
@@ -438,7 +439,7 @@
                   <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(OutConfig("Daily Statements Folder Path").ToString)]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign sap:VirtualizedContainerService.HintSize="514,176" sap2010:WorkflowViewState.IdRef="Assign_56">
+              <Assign sap:VirtualizedContainerService.HintSize="520,176" sap2010:WorkflowViewState.IdRef="Assign_56">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[BenchmarkFile]</OutArgument>
                 </Assign.To>
@@ -446,7 +447,7 @@
                   <InArgument x:TypeArguments="x:String">[StatementFiles.FirstOrDefault(Function(f) System.Text.RegularExpressions.Regex.IsMatch(Path.GetFileName(f), "^\d{8}_"))]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign sap:VirtualizedContainerService.HintSize="514,176" sap2010:WorkflowViewState.IdRef="Assign_57">
+              <Assign sap:VirtualizedContainerService.HintSize="520,176" sap2010:WorkflowViewState.IdRef="Assign_57">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Int32">[Benchmark_Year]</OutArgument>
                 </Assign.To>
@@ -454,7 +455,7 @@
                   <InArgument x:TypeArguments="x:Int32">[CInt(Path.GetFileName(BenchmarkFile).Substring(0, 4))]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign sap:VirtualizedContainerService.HintSize="514,176" sap2010:WorkflowViewState.IdRef="Assign_58">
+              <Assign sap:VirtualizedContainerService.HintSize="520,176" sap2010:WorkflowViewState.IdRef="Assign_58">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Int32">[Benchmark_Month]</OutArgument>
                 </Assign.To>
@@ -462,8 +463,8 @@
                   <InArgument x:TypeArguments="x:Int32">[CInt(Path.GetFileName(BenchmarkFile).Substring(4, 2))]</InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514,176" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Calculating start and end days safely&quot;]" />
-              <If Condition="[OutConfig(&quot;RangeDayMode(Y/N)&quot;).ToString().Trim().ToLower() = &quot;y&quot;]" sap:VirtualizedContainerService.HintSize="514,602.5" sap2010:WorkflowViewState.IdRef="If_19">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="520,176" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Calculating start and end days safely&quot;]" />
+              <If Condition="[OutConfig(&quot;RangeDayMode(Y/N)&quot;).ToString().Trim().ToLower() = &quot;y&quot;]" sap:VirtualizedContainerService.HintSize="520,602.5" sap2010:WorkflowViewState.IdRef="If_19">
                 <If.Then>
                   <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512,231.5" sap2010:WorkflowViewState.IdRef="Sequence_66">
                     <sap:WorkflowViewStateService.ViewState>
@@ -536,7 +537,7 @@
                 </Assign.Value>
               </Assign>
               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514,176" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;Validating file existence&quot;]" />
-              <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[DayNumber &lt;= EndDayNumber]" DisplayName="While" sap:VirtualizedContainerService.HintSize="514,939" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
+              <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[DayNumber &lt;= EndDayNumber]" DisplayName="While" sap:VirtualizedContainerService.HintSize="520,939" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
                 <ui:InterruptibleWhile.Body>
                   <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,807.5" sap2010:WorkflowViewState.IdRef="Sequence_68">
                     <Sequence.Variables>
@@ -587,7 +588,7 @@
                   </Sequence>
                 </ui:InterruptibleWhile.Body>
               </ui:InterruptibleWhile>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514,176" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Creating DataTable of every valid date in benchmark month&quot;]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="520,176" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Creating DataTable of every valid date in benchmark month&quot;]" />
               <ui:BuildDataTable DataTable="[dt_MonthDates]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="514,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
               <Assign sap:VirtualizedContainerService.HintSize="514,176" sap2010:WorkflowViewState.IdRef="Assign_62">
                 <Assign.To>
@@ -597,7 +598,7 @@
                   <InArgument x:TypeArguments="x:Int32">[DateTime.DaysInMonth(Benchmark_Year, BenchMark_Month)]</InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each CurrentDay" sap:VirtualizedContainerService.HintSize="514,396" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Enumerable.Range(1, TotalDaysInMonth)]">
+              <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each CurrentDay" sap:VirtualizedContainerService.HintSize="520,405" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Enumerable.Range(1, TotalDaysInMonth)]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="x:Int32">
                     <ActivityAction.Argument>
@@ -614,6 +615,41 @@
                   </ActivityAction>
                 </ui:ForEach.Body>
               </ui:ForEach>
+              <Sequence DisplayName="Prepare mapping table" sap:VirtualizedContainerService.HintSize="520,816.5" sap2010:WorkflowViewState.IdRef="Sequence_84">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_Mapping]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="486,228.5" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Sheet1" WorkbookPathResource="[LocalResource.FromPath(OutConfig(&quot;Mapping Table&quot;).ToString)]" />
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,338" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,227" sap2010:WorkflowViewState.IdRef="Sequence_85">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Program does not ignore 'HQ' outlet" sap:VirtualizedContainerService.HintSize="416,167" sap2010:WorkflowViewState.IdRef="Assign_65">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="sd:DataTable">[dt_Mapping]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="sd:DataTable">[dt_Mapping.AsEnumerable().Where(Function(row) Not String.IsNullOrWhiteSpace(row(0).ToString) AndAlso (Not String.IsNullOrWhiteSpace(row(1).ToString) OrElse Not String.IsNullOrWhiteSpace(row(7).ToString))).CopyToDataTable()]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                </ui:CommentOut>
+                <Assign DisplayName="Program ignores 'HQ' outlet" sap:VirtualizedContainerService.HintSize="486,167" sap2010:WorkflowViewState.IdRef="Assign_66">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="sd:DataTable">[dt_Mapping]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="sd:DataTable">[dt_Mapping.AsEnumerable().Where(Function(row) Not String.IsNullOrWhiteSpace(row(0).ToString) AndAlso row(0).ToString().Trim().ToUpper() &lt;&gt; "HQ" AndAlso (Not String.IsNullOrWhiteSpace(row(1).ToString) OrElse Not String.IsNullOrWhiteSpace(row(7).ToString))).CopyToDataTable()]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
             </Sequence>
             <FlowStep.Next>
               <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_3">
@@ -770,6 +806,7 @@
                               <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Year">[Benchmark_Year]</InArgument>
                               <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Month">[Benchmark_Month]</InArgument>
                               <InArgument x:TypeArguments="x:String" x:Key="in_ReconciliationFileName">[ReconciliationFileName]</InArgument>
+                              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Mapping">[dt_Mapping]</InArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                           </ui:InvokeWorkflowFile>
                         </Sequence>
@@ -826,12 +863,13 @@
                                       <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Summary &amp; Recon - Invoke Workflow File (Summary &amp; Recon.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Summary &amp; Recon.xaml">
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Summary &amp; Recon - Invoke Workflow File (Summary &amp; Recon.xaml)" sap:VirtualizedContainerService.HintSize="432.5,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Summary &amp; Recon.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
                                       <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Month">[Benchmark_Month]</InArgument>
                                       <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Year">[Benchmark_Year]</InArgument>
                                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="In_Config">[OutConfig]</InArgument>
                                       <InArgument x:TypeArguments="x:String" x:Key="in_ReconciliationFileName">[ReconciliationFileName]</InArgument>
+                                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Mapping">[dt_Mapping]</InArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                   </ui:InvokeWorkflowFile>
                                 </Sequence>

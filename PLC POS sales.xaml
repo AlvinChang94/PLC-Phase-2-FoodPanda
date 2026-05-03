@@ -1,5 +1,6 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="PLC_POS_sales" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
+    <x:Property Name="in_dt_Mapping" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_ReconciliationFileName" Type="InArgument(x:String)" />
     <x:Property Name="in_Benchmark_Year" Type="InArgument(x:Int32)" />
     <x:Property Name="in_Benchmark_Month" Type="InArgument(x:Int32)" />
@@ -123,19 +124,18 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PLC_POS_sales" sap:VirtualizedContainerService.HintSize="803,6892.5" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PLC_POS_sales" sap:VirtualizedContainerService.HintSize="803,6664" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="558,6869.5" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap:VirtualizedContainerService.HintSize="558,6641" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="ReconFilePath" />
         <Variable x:TypeArguments="x:String" Name="SalesFilePath" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_SalesRaw" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_SalesClean" />
-        <Variable x:TypeArguments="sd:DataTable" Name="dt_Mapping" />
         <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Dict_Mapping" />
         <Variable x:TypeArguments="x:Int32" Name="LastRow" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_MappedColI" />
@@ -298,6 +298,12 @@
             </If>
           </Sequence>
         </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
       </ui:CommentOut>
       <Sequence DisplayName="Respect StartDate and EndDate in config" sap:VirtualizedContainerService.HintSize="524,57" sap2010:WorkflowViewState.IdRef="Sequence_36">
         <sap:WorkflowViewStateService.ViewState>
@@ -358,7 +364,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:InterruptibleWhile>
-      <Sequence DisplayName="Mapping logic for column I" sap:VirtualizedContainerService.HintSize="524,3233" sap2010:WorkflowViewState.IdRef="Sequence_43">
+      <Sequence DisplayName="Mapping logic for column I" sap:VirtualizedContainerService.HintSize="524,3004.5" sap2010:WorkflowViewState.IdRef="Sequence_43">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -366,7 +372,6 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,176" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;converting Mapping File into Dictionary&quot;]" />
-        <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_Mapping]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="488,228.5" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Sheet1" WorkbookPathResource="[LocalResource.FromPath(in_Config(&quot;Mapping Table&quot;).ToString)]" />
         <Assign sap:VirtualizedContainerService.HintSize="488,176" sap2010:WorkflowViewState.IdRef="Assign_10">
           <Assign.To>
             <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[Dict_Mapping]</OutArgument>
@@ -375,7 +380,7 @@
             <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[New Dictionary(Of String, String)]</InArgument>
           </Assign.Value>
         </Assign>
-        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Mapping]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="488,1029" sap2010:WorkflowViewState.IdRef="ForEachRow_5">
+        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dt_Mapping]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="488,1029" sap2010:WorkflowViewState.IdRef="ForEachRow_5">
           <ui:ForEachRow.Body>
             <ActivityAction x:TypeArguments="sd:DataRow">
               <ActivityAction.Argument>
