@@ -112,7 +112,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="845,683" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="803,683" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="OutConfig" />
       <Variable x:TypeArguments="sd:DataTable" Name="ConfigDT" />
@@ -528,7 +528,7 @@
                   </Sequence>
                 </If.Else>
               </If>
-              <Assign sap:VirtualizedContainerService.HintSize="514,176" sap2010:WorkflowViewState.IdRef="Assign_59">
+              <Assign sap:VirtualizedContainerService.HintSize="520,176" sap2010:WorkflowViewState.IdRef="Assign_59">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Int32">[DayNumber]</OutArgument>
                 </Assign.To>
@@ -536,7 +536,7 @@
                   <InArgument x:TypeArguments="x:Int32">[StartDayNumber]</InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="514,176" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;Validating file existence&quot;]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="520,176" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;Validating file existence&quot;]" />
               <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[DayNumber &lt;= EndDayNumber]" DisplayName="While" sap:VirtualizedContainerService.HintSize="520,939" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
                 <ui:InterruptibleWhile.Body>
                   <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,807.5" sap2010:WorkflowViewState.IdRef="Sequence_68">
@@ -589,8 +589,8 @@
                 </ui:InterruptibleWhile.Body>
               </ui:InterruptibleWhile>
               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="520,176" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Creating DataTable of every valid date in benchmark month&quot;]" />
-              <ui:BuildDataTable DataTable="[dt_MonthDates]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="514,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-              <Assign sap:VirtualizedContainerService.HintSize="514,176" sap2010:WorkflowViewState.IdRef="Assign_62">
+              <ui:BuildDataTable DataTable="[dt_MonthDates]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="520,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+              <Assign sap:VirtualizedContainerService.HintSize="520,176" sap2010:WorkflowViewState.IdRef="Assign_62">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Int32">[TotalDaysInMonth]</OutArgument>
                 </Assign.To>
@@ -622,33 +622,33 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_Mapping]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="486,228.5" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Sheet1" WorkbookPathResource="[LocalResource.FromPath(OutConfig(&quot;Mapping Table&quot;).ToString)]" />
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,338" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                <Assign DisplayName="Program does not ignore 'HQ' outlet" sap:VirtualizedContainerService.HintSize="486,176" sap2010:WorkflowViewState.IdRef="Assign_67">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="sd:DataTable">[dt_Mapping]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="sd:DataTable">[dt_Mapping.AsEnumerable().Where(Function(row) Not String.IsNullOrWhiteSpace(row(0).ToString) AndAlso (Not String.IsNullOrWhiteSpace(row(1).ToString) OrElse Not String.IsNullOrWhiteSpace(row(7).ToString))).CopyToDataTable()]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,329" sap2010:WorkflowViewState.IdRef="CommentOut_2">
                   <ui:CommentOut.Body>
-                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,227" sap2010:WorkflowViewState.IdRef="Sequence_85">
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,227" sap2010:WorkflowViewState.IdRef="Sequence_86">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign DisplayName="Program does not ignore 'HQ' outlet" sap:VirtualizedContainerService.HintSize="416,167" sap2010:WorkflowViewState.IdRef="Assign_65">
+                      <Assign DisplayName="Program ignores 'HQ' outlet" sap:VirtualizedContainerService.HintSize="416,167" sap2010:WorkflowViewState.IdRef="Assign_66">
                         <Assign.To>
                           <OutArgument x:TypeArguments="sd:DataTable">[dt_Mapping]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
-                          <InArgument x:TypeArguments="sd:DataTable">[dt_Mapping.AsEnumerable().Where(Function(row) Not String.IsNullOrWhiteSpace(row(0).ToString) AndAlso (Not String.IsNullOrWhiteSpace(row(1).ToString) OrElse Not String.IsNullOrWhiteSpace(row(7).ToString))).CopyToDataTable()]</InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable">[dt_Mapping.AsEnumerable().Where(Function(row) Not String.IsNullOrWhiteSpace(row(0).ToString) AndAlso row(0).ToString().Trim().ToUpper() &lt;&gt; "HQ" AndAlso (Not String.IsNullOrWhiteSpace(row(1).ToString) OrElse Not String.IsNullOrWhiteSpace(row(7).ToString))).CopyToDataTable()]</InArgument>
                         </Assign.Value>
                       </Assign>
                     </Sequence>
                   </ui:CommentOut.Body>
                 </ui:CommentOut>
-                <Assign DisplayName="Program ignores 'HQ' outlet" sap:VirtualizedContainerService.HintSize="486,167" sap2010:WorkflowViewState.IdRef="Assign_66">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="sd:DataTable">[dt_Mapping]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="sd:DataTable">[dt_Mapping.AsEnumerable().Where(Function(row) Not String.IsNullOrWhiteSpace(row(0).ToString) AndAlso row(0).ToString().Trim().ToUpper() &lt;&gt; "HQ" AndAlso (Not String.IsNullOrWhiteSpace(row(1).ToString) OrElse Not String.IsNullOrWhiteSpace(row(7).ToString))).CopyToDataTable()]</InArgument>
-                  </Assign.Value>
-                </Assign>
               </Sequence>
             </Sequence>
             <FlowStep.Next>
