@@ -116,13 +116,13 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Summary___Recon" sap:VirtualizedContainerService.HintSize="845,3815.5" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Summary___Recon" sap:VirtualizedContainerService.HintSize="803,3953" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="556,3792.5" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap:VirtualizedContainerService.HintSize="556,3930" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="s:DateTime" Name="FirstDayOfBenchmark" />
         <Variable x:TypeArguments="x:Int32" Name="DaysInMonth" />
@@ -139,13 +139,18 @@
       <ui:BuildDataTable DataTable="[dt_ColDE]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="522,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;OutletCode&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;OutletName&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
       <ui:BuildDataTable DataTable="[dt_ColN]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="522,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_3" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;BenchmarkDates&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
       <ui:BuildDataTable DataTable="[dt_ColYZ]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="522,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;OutletCode&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-      <Assign sap:VirtualizedContainerService.HintSize="522,176" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign sap2010:Annotation.AnnotationText="Extracts first 2 columns of mapping file to paste in recon sheet" sap:VirtualizedContainerService.HintSize="522,220.5" sap2010:WorkflowViewState.IdRef="Assign_3">
         <Assign.To>
           <OutArgument x:TypeArguments="sd:DataTable">[dt_ColDE]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="sd:DataTable">[in_dt_Mapping.DefaultView.ToTable(False, in_dt_Mapping.Columns(0).ColumnName, in_dt_Mapping.Columns(1).ColumnName)]</InArgument>
         </Assign.Value>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
       </Assign>
       <Assign sap:VirtualizedContainerService.HintSize="522,176" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
@@ -163,7 +168,7 @@
           <InArgument x:TypeArguments="x:Int32">[DateTime.DaysInMonth(in_Benchmark_Year, in_Benchmark_Month)]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each currentNumber" sap:VirtualizedContainerService.HintSize="522,405" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Enumerable.Range(1, 6).Reverse()]">
+      <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Find last 6 of previous month for populating first 6 rows of column N" DisplayName="For Each currentNumber" sap:VirtualizedContainerService.HintSize="522,436" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Enumerable.Range(1, 6).Reverse()]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="x:Int32">
             <ActivityAction.Argument>
@@ -179,8 +184,13 @@
             </Sequence>
           </ActivityAction>
         </ui:ForEach.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
       </ui:ForEach>
-      <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each currentNumber" sap:VirtualizedContainerService.HintSize="522,405" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[Enumerable.Range(1, DaysInMonth)]">
+      <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Populate column N with all days of current month " DisplayName="For Each currentNumber" sap:VirtualizedContainerService.HintSize="522,436" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[Enumerable.Range(1, DaysInMonth)]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="x:Int32">
             <ActivityAction.Argument>
@@ -196,26 +206,31 @@
             </Sequence>
           </ActivityAction>
         </ui:ForEach.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
       </ui:ForEach>
-      <Sequence DisplayName="Cartesian product for outlet and date" sap:VirtualizedContainerService.HintSize="522,722" sap2010:WorkflowViewState.IdRef="Sequence_7">
+      <Sequence DisplayName="Cartesian product for outlet and date for column YZ" sap:VirtualizedContainerService.HintSize="522,753" sap2010:WorkflowViewState.IdRef="Sequence_7">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dt_Mapping]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="488,630" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dt_Mapping]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="488,661" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
           <ui:ForEachRow.Body>
             <ActivityAction x:TypeArguments="sd:DataRow">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,456" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,487" sap2010:WorkflowViewState.IdRef="Sequence_8">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each currentNumber" sap:VirtualizedContainerService.HintSize="452,396" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[Enumerable.Range(1, DaysInMonth)]">
+                <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Populate every outlet with every day of current month" DisplayName="For Each currentNumber" sap:VirtualizedContainerService.HintSize="452,427" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[Enumerable.Range(1, DaysInMonth)]">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="x:Int32">
                       <ActivityAction.Argument>
@@ -231,6 +246,11 @@
                       </Sequence>
                     </ActivityAction>
                   </ui:ForEach.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
                 </ui:ForEach>
               </Sequence>
             </ActivityAction>
@@ -250,8 +270,8 @@
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;RECON&quot;).Range(&quot;D4&quot;)]" DisplayName="Write DataTable to Excel" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="434,95" sap2010:WorkflowViewState.IdRef="WriteRangeX_1" IgnoreEmptySource="False" Source="[dt_ColDE]" />
-              <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;RECON&quot;).Range(&quot;N4&quot;)]" DisplayName="Write DataTable to Excel" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="434,95" sap2010:WorkflowViewState.IdRef="WriteRangeX_3" IgnoreEmptySource="False" Source="[dt_ColN]">
+              <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;RECON&quot;).Range(&quot;D4&quot;)]" DisplayName="Write DataTable to Excel" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="416,223.5" sap2010:WorkflowViewState.IdRef="WriteRangeX_1" IgnoreEmptySource="False" Source="[dt_ColDE]" />
+              <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;RECON&quot;).Range(&quot;N4&quot;)]" DisplayName="Write DataTable to Excel" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="416,223.5" sap2010:WorkflowViewState.IdRef="WriteRangeX_3" IgnoreEmptySource="False" Source="[dt_ColN]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -259,7 +279,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ueab:WriteRangeX>
-              <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;RECON&quot;).Range(&quot;Y4&quot;)]" DisplayName="Write DataTable to Excel" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="434,95" sap2010:WorkflowViewState.IdRef="WriteRangeX_2" IgnoreEmptySource="False" Source="[dt_ColYZ]">
+              <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;RECON&quot;).Range(&quot;Y4&quot;)]" DisplayName="Write DataTable to Excel" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="416,223.5" sap2010:WorkflowViewState.IdRef="WriteRangeX_2" IgnoreEmptySource="False" Source="[dt_ColYZ]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -267,7 +287,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ueab:WriteRangeX>
-              <ueab:WriteCellX sap2010:Annotation.AnnotationText="Add date to cell B4" Cell="[Excel.Sheet(&quot;SUMMARY&quot;).Cell(&quot;B4&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,117" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[New DateTime(in_Benchmark_Year, in_Benchmark_Month, 1)]">
+              <ueab:WriteCellX sap2010:Annotation.AnnotationText="Add date to cell B4" Cell="[Excel.Sheet(&quot;SUMMARY&quot;).Cell(&quot;B4&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="416,245.5" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[New DateTime(in_Benchmark_Year, in_Benchmark_Month, 1)]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>

@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="PLC_sales_Inv" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="PLC_sales_Inv" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Benchmark_Month" Type="InArgument(x:Int32)" />
     <x:Property Name="in_Benchmark_Year" Type="InArgument(x:Int32)" />
@@ -51,6 +51,7 @@
       <x:String>GlobalConstantsNamespace</x:String>
       <x:String>System.Numerics</x:String>
       <x:String>System.Globalization</x:String>
+      <x:String>UiPath.Platform</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -115,9 +116,13 @@
       <AssemblyReference>System.CodeDom</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PLC_sales_Inv" sap:VirtualizedContainerService.HintSize="1027,3923.5" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PLC_sales_Inv" sap:VirtualizedContainerService.HintSize="807.0000000000001,3967.0000000000005" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="FilePath" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_SalesInvoice" />
@@ -128,216 +133,234 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage sap2010:Annotation.AnnotationText="Populates column A-E of 'PLC Sales Inv vs PLCpaymt' using 'SalesInvoiceByStoreSummary' file" DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1027,237" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Start of sales invoice&quot;]">
+    <ui:LogMessage sap2010:Annotation.AnnotationText="Populates column A-E of 'PLC Sales Inv vs PLCpaymt' using 'SalesInvoiceByStoreSummary' file" DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="524,237" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Start of sales invoice&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="1027,3663.5" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_8">
+    <Assign sap:VirtualizedContainerService.HintSize="524,176" sap2010:WorkflowViewState.IdRef="Assign_12">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[FilePath]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Directory.GetFiles(in_Config("POS Folder Path").ToString, "*.*").Where(Function(f) f.ToLower.Contains("salesinvoicebystoressummary") AndAlso f.ToLower.Replace(" ", "").Contains("foodpanda") AndAlso (f.ToLower.EndsWith(".csv") )).FirstOrDefault()]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[FilePath Is Nothing]" sap:VirtualizedContainerService.HintSize="524,404.5" sap2010:WorkflowViewState.IdRef="If_4">
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,174.5" sap2010:WorkflowViewState.IdRef="Sequence_55">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Throw Exception="[New BusinessRuleException(&quot;FoodPanda Sales Invoice file not found in: &quot; + in_Config(&quot;POS Folder Path&quot;).ToString  + &quot;. Please check if the file name contains 'FoodPanda SalesInvoiceByStoresSummary.csv'&quot;)]" sap:VirtualizedContainerService.HintSize="416,114.5" sap2010:WorkflowViewState.IdRef="Throw_1" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90.5" sap2010:WorkflowViewState.IdRef="Sequence_56">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="524,1790.5" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_9">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1025,3593.5" sap2010:WorkflowViewState.IdRef="Sequence_52">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="486,1711.5" sap2010:WorkflowViewState.IdRef="Sequence_59">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="sheets" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ForEachFileX sap2010:Annotation.AnnotationText="Find &quot;salesinvoicebystoressummary&quot; file" DisplayName="For Each File in Folder" Folder="[In_Config(&quot;Sales Folder Path&quot;)]" sap:VirtualizedContainerService.HintSize="991,1875" sap2010:WorkflowViewState.IdRef="ForEachFileX_3" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
-              <ui:ForEachFileX.Body>
-                <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
-                  <ActivityAction.Argument1>
-                    <DelegateInArgument x:TypeArguments="si:FileInfo" Name="CurrentFile" />
-                  </ActivityAction.Argument1>
-                  <ActivityAction.Argument2>
-                    <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
-                  </ActivityAction.Argument2>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="957,1544.5" sap2010:WorkflowViewState.IdRef="Sequence_21">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <Sequence sap:VirtualizedContainerService.HintSize="923,1484.5" sap2010:WorkflowViewState.IdRef="Sequence_22">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:IfElseIfV2 Condition="[CurrentFile.ToString.ToLower().Contains(&quot;salesinvoicebystoressummary&quot;) AndAlso CurrentFile.ToString.ToLower().Contains(&quot;.csv&quot;)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="889,1401.5" sap2010:WorkflowViewState.IdRef="IfElseIfV2_3">
-                        <ui:IfElseIfV2.Else>
-                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="887,90.5" sap2010:WorkflowViewState.IdRef="Sequence_27">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </Sequence>
-                        </ui:IfElseIfV2.Else>
-                        <ui:IfElseIfV2.ElseIfs>
-                          <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
-                            <ui:IfElseIfBlock BlockType="ElseIf" Condition="[CurrentFile.ToString.ToLower().Contains(&quot;salesinvoicebystoressummary&quot;) AndAlso CurrentFile.ToString.ToLower().Contains(&quot;.xlsx&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_2">
-                              <ui:IfElseIfBlock.Then>
-                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="887,227" sap2010:WorkflowViewState.IdRef="Sequence_23">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <Assign sap:VirtualizedContainerService.HintSize="853,167" sap2010:WorkflowViewState.IdRef="Assign_8">
-                                    <Assign.To>
-                                      <OutArgument x:TypeArguments="x:String">[FilePath]</OutArgument>
-                                    </Assign.To>
-                                    <Assign.Value>
-                                      <InArgument x:TypeArguments="x:String">[CurrentFile.FullName.ToString()]</InArgument>
-                                    </Assign.Value>
-                                  </Assign>
-                                </Sequence>
-                              </ui:IfElseIfBlock.Then>
-                            </ui:IfElseIfBlock>
-                          </sc:BindingList>
-                        </ui:IfElseIfV2.ElseIfs>
-                        <ui:IfElseIfV2.Then>
-                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="887,866.5" sap2010:WorkflowViewState.IdRef="Sequence_26">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <Sequence sap:VirtualizedContainerService.HintSize="853,806.5" sap2010:WorkflowViewState.IdRef="Sequence_25">
-                              <Sequence.Variables>
-                                <Variable x:TypeArguments="x:String" Name="newfile" />
-                              </Sequence.Variables>
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <ueab:ExcelApplicationCard DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="452,556.5" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_6" ResizeWindow="None" WorkbookPath="[CurrentFile.ToString]">
-                                <ueab:ExcelApplicationCard.Body>
-                                  <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
-                                    <ActivityAction.Argument>
-                                      <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
-                                    </ActivityAction.Argument>
-                                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,326" sap2010:WorkflowViewState.IdRef="Sequence_24">
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                      <ueab:SaveExcelFileAsX DisplayName="Save Excel File As" FilePath="[System.IO.Path.Combine(System.IO.Path.GetDirectoryName(CurrentFile.ToString), System.IO.Path.GetFileNameWithoutExtension(CurrentFile.ToString))]" sap:VirtualizedContainerService.HintSize="416,266" sap2010:WorkflowViewState.IdRef="SaveExcelFileAsX_5" SaveAsFileType="OpenXmlWorkbook" Workbook="[Excel]" />
-                                    </Sequence>
-                                  </ActivityAction>
-                                </ueab:ExcelApplicationCard.Body>
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                              </ueab:ExcelApplicationCard>
-                              <Assign sap:VirtualizedContainerService.HintSize="452,167" sap2010:WorkflowViewState.IdRef="Assign_7">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="x:String">[FilePath]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">[System.IO.Path.ChangeExtension(CurrentFile.FullName, ".xlsx")]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                            </Sequence>
-                          </Sequence>
-                        </ui:IfElseIfV2.Then>
-                      </ui:IfElseIfV2>
-                    </Sequence>
-                  </Sequence>
-                </ActivityAction>
-              </ui:ForEachFileX.Body>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:ForEachFileX>
-            <ueab:ExcelApplicationCard DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="991,452.5" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_11" ResizeWindow="None" WorkbookPath="[FilePath]">
+            <ueab:ExcelApplicationCard CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="452,732.5" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_13" ResizeWindow="None" WorkbookPath="[FilePath]">
               <ueab:ExcelApplicationCard.Body>
                 <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,222" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,502" sap2010:WorkflowViewState.IdRef="Sequence_57">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="416,162" sap2010:WorkflowViewState.IdRef="ReadRangeX_3" Range="[Excel.Sheet(&quot;SalesInvoiceByStoresSummary&quot;).Range(&quot;A1:E35&quot;)]" SaveTo="[dt_SalesInvoice]" />
+                    <ueab:SaveExcelFileAsX DisplayName="Save Excel File As" FilePath="[Path.ChangeExtension(FilePath, &quot;.xlsx&quot;)]" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="SaveExcelFileAsX_6" SaveAsFileType="OpenXmlWorkbook" Workbook="[Excel]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ueab:SaveExcelFileAsX>
+                    <Assign sap:VirtualizedContainerService.HintSize="416,167" sap2010:WorkflowViewState.IdRef="Assign_13">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[FilePath]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[Path.ChangeExtension(FilePath, ".xlsx")]</InArgument>
+                      </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Assign>
                   </Sequence>
                 </ActivityAction>
               </ueab:ExcelApplicationCard.Body>
             </ueab:ExcelApplicationCard>
-            <ui:FilterDataTable DataTable="[dt_SalesInvoice]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="991,196" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dt_FilteredSalesInvoice]" SelectColumnsMode="Remove">
-              <ui:FilterDataTable.Filters>
-                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
-                  <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
-                    <ui:FilterOperationArgument.Column>
-                      <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
-                    </ui:FilterOperationArgument.Column>
-                    <ui:FilterOperationArgument.Operand>
-                      <InArgument x:TypeArguments="x:String">["TOTAL"]</InArgument>
-                    </ui:FilterOperationArgument.Operand>
-                  </ui:FilterOperationArgument>
-                </scg:List>
-              </ui:FilterDataTable.Filters>
-              <ui:FilterDataTable.SelectColumns>
-                <scg:List x:TypeArguments="InArgument" Capacity="4">
-                  <x:Null />
-                </scg:List>
-              </ui:FilterDataTable.SelectColumns>
-            </ui:FilterDataTable>
-            <Sequence DisplayName="Respect StartDate and EndDate in config" sap:VirtualizedContainerService.HintSize="991,57" sap2010:WorkflowViewState.IdRef="Sequence_48">
+            <ui:GetSheets DisplayName="Get Sheets Workbook" sap:VirtualizedContainerService.HintSize="452,123.5" sap2010:WorkflowViewState.IdRef="GetSheets_2" Result="[sheets]" WorkbookPathResource="[LocalResource.FromPath(FilePath)]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[In_Config(&quot;RangeDayMode(Y/N)&quot;).ToString().ToUpper().Trim() = &quot;Y&quot;]" sap:VirtualizedContainerService.HintSize="452,448" sap2010:WorkflowViewState.IdRef="If_1">
-                <If.Then>
-                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,227" sap2010:WorkflowViewState.IdRef="Sequence_43">
+            </ui:GetSheets>
+            <ueab:ExcelApplicationCard DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="452,795.5" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_14" ResizeWindow="None" WorkbookPath="[FilePath]">
+              <ueab:ExcelApplicationCard.Body>
+                <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,574" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="targetSheet" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="416,167" sap2010:WorkflowViewState.IdRef="Assign_9">
+                    <Assign sap:VirtualizedContainerService.HintSize="416,176" sap2010:WorkflowViewState.IdRef="Assign_14">
                       <Assign.To>
-                        <OutArgument x:TypeArguments="sd:DataTable">[dt_FilteredSalesInvoice]</OutArgument>
+                        <OutArgument x:TypeArguments="x:String">[targetSheet]</OutArgument>
                       </Assign.To>
                       <Assign.Value>
-                        <InArgument x:TypeArguments="sd:DataTable">[dt_FilteredSalesInvoice.AsEnumerable().Where(Function(row) String.IsNullOrWhiteSpace(row(0).ToString) OrElse Not IsDate(row(0).ToString) OrElse (CDate(row(0).ToString).Date &gt;= New DateTime(in_Benchmark_Year, in_Benchmark_Month, CInt(In_Config("StartDayValue"))).Date AndAlso CDate(row(0).ToString).Date &lt;= New DateTime(in_Benchmark_Year, in_Benchmark_Month, CInt(In_Config("EndDayValue"))).Date)).CopyToDataTable()]</InArgument>
+                        <InArgument x:TypeArguments="x:String">[sheets.FirstOrDefault(Function(s) s.ToLower.Replace(" ", "").Contains("salesinvoicebystore"))]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="416,171" sap2010:WorkflowViewState.IdRef="ReadRangeX_4" Range="[Excel.Sheet(targetSheet).Range(&quot;A:E&quot;)]" SaveTo="[dt_SalesInvoice]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ueab:ReadRangeX>
+                    <Assign sap:VirtualizedContainerService.HintSize="416,167" sap2010:WorkflowViewState.IdRef="Assign_15">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="sd:DataTable">[dt_SalesInvoice]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="sd:DataTable">[dt_SalesInvoice.AsEnumerable().TakeWhile(Function(row) Not row(0).ToString().Trim().ToLower().Contains("total")).CopyToDataTable()]</InArgument>
                       </Assign.Value>
                     </Assign>
                   </Sequence>
-                </If.Then>
-                <If.Else>
-                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90.5" sap2010:WorkflowViewState.IdRef="Sequence_44">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </Sequence>
-                </If.Else>
-              </If>
-            </Sequence>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="991,176" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;End of sales invoice&quot;]" />
-            <ueab:ExcelApplicationCard DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="991,777" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_9" ResizeWindow="None" WorkbookPath="[In_Config(&quot;Reconciliation Folder Path&quot;)+&quot;\&quot;+In_ReconciliationFileName]">
+                </ActivityAction>
+              </ueab:ExcelApplicationCard.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ueab:ExcelApplicationCard>
+          </Sequence>
+        </ActivityAction>
+      </ueab:ExcelProcessScopeX.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ueab:ExcelProcessScopeX>
+    <ui:FilterDataTable DataTable="[dt_SalesInvoice]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="524,196" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[dt_FilteredSalesInvoice]" SelectColumnsMode="Remove">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+            </ui:FilterOperationArgument.Column>
+            <ui:FilterOperationArgument.Operand>
+              <InArgument x:TypeArguments="x:String">["TOTAL"]</InArgument>
+            </ui:FilterOperationArgument.Operand>
+          </ui:FilterOperationArgument>
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <x:Null />
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+    </ui:FilterDataTable>
+    <Sequence DisplayName="Respect StartDate and EndDate in config" sap:VirtualizedContainerService.HintSize="524,57" sap2010:WorkflowViewState.IdRef="Sequence_54">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If Condition="[In_Config(&quot;RangeDayMode(Y/N)&quot;).ToString().ToUpper().Trim() = &quot;Y&quot;]" sap:VirtualizedContainerService.HintSize="452,448" sap2010:WorkflowViewState.IdRef="If_5">
+        <If.Then>
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,227" sap2010:WorkflowViewState.IdRef="Sequence_60">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="416,167" sap2010:WorkflowViewState.IdRef="Assign_16">
+              <Assign.To>
+                <OutArgument x:TypeArguments="sd:DataTable">[dt_FilteredSalesInvoice]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="sd:DataTable">[dt_FilteredSalesInvoice.AsEnumerable().Where(Function(row) String.IsNullOrWhiteSpace(row(0).ToString) OrElse Not IsDate(row(0).ToString) OrElse (CDate(row(0).ToString).Date &gt;= New DateTime(in_Benchmark_Year, in_Benchmark_Month, CInt(In_Config("StartDayValue"))).Date AndAlso CDate(row(0).ToString).Date &lt;= New DateTime(in_Benchmark_Year, in_Benchmark_Month, CInt(In_Config("EndDayValue"))).Date)).CopyToDataTable()]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90.5" sap2010:WorkflowViewState.IdRef="Sequence_61">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="524,176" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;End of sales invoice&quot;]" />
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="524,907" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_8">
+      <ueab:ExcelProcessScopeX.Body>
+        <ActivityAction x:TypeArguments="ui:IExcelProcess">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="522,837" sap2010:WorkflowViewState.IdRef="Sequence_52">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="sheets" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ueab:ExcelApplicationCard DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="488,777" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_9" ResizeWindow="None" WorkbookPath="[In_Config(&quot;Reconciliation Folder Path&quot;)+&quot;\&quot;+In_ReconciliationFileName]">
               <ueab:ExcelApplicationCard.Body>
                 <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                   <ActivityAction.Argument>
