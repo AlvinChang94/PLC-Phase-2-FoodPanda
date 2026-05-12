@@ -731,7 +731,7 @@
                                     <InArgument x:TypeArguments="x:String">["PLC Food Panda reconciliation.xlsx"]</InArgument>
                                   </Assign.Value>
                                 </Assign>
-                                <ui:RenameFileX FileResource="{x:Null}" OutputFileResource="{x:Null}" DisplayName=" Rename Recon File" FilePath="[CurrentFile.FullName]" sap:VirtualizedContainerService.HintSize="416,215.33333333333334" sap2010:WorkflowViewState.IdRef="RenameFileX_1" KeepExtension="True" NewName="[OutConfig(&quot;Reconciliation Folder Path&quot;) + &quot;\PLC Food Panda reconcilitation&quot;]" />
+                                <ui:RenameFileX FileResource="{x:Null}" OutputFileResource="{x:Null}" DisplayName=" Rename Recon File" FilePath="[CurrentFile.FullName]" sap:VirtualizedContainerService.HintSize="416,215.33333333333334" sap2010:WorkflowViewState.IdRef="RenameFileX_1" KeepExtension="True" NewName="[OutConfig(&quot;Reconciliation Folder Path&quot;) + &quot;\PLC Food Panda reconciliation&quot;]" />
                               </Sequence>
                             </If.Then>
                             <If.Else>
