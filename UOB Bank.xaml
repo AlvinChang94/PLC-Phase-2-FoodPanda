@@ -117,7 +117,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="UOB_Bank" sap:VirtualizedContainerService.HintSize="634,5584.5" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="UOB_Bank" sap:VirtualizedContainerService.HintSize="801,5584.5" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
