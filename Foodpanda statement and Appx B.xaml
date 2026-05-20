@@ -127,13 +127,13 @@
       <AssemblyReference>DataTable.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Foodpanda_statement_and_Appx_B" sap:VirtualizedContainerService.HintSize="902,11734.000000000002" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Foodpanda_statement_and_Appx_B" sap:VirtualizedContainerService.HintSize="902,11678" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="864,11711.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap:VirtualizedContainerService.HintSize="864,11655.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dt_AppxB" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_AppxA" />
@@ -236,13 +236,13 @@
           </Assign.Value>
         </Assign>
       </Sequence>
-      <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="830,11466" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_4">
+      <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="830,11410" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_4">
         <ueab:ExcelProcessScopeX.Body>
           <ActivityAction x:TypeArguments="ui:IExcelProcess">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="828,11386.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_18">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="828,11330.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_18">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -535,7 +535,7 @@
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:InterruptibleWhile>
               </Sequence>
-              <Sequence DisplayName="Prepare and Populate Reconciliation File" sap:VirtualizedContainerService.HintSize="794,7006" sap2010:WorkflowViewState.IdRef="Sequence_35">
+              <Sequence DisplayName="Prepare and Populate Reconciliation File" sap:VirtualizedContainerService.HintSize="794,6950" sap2010:WorkflowViewState.IdRef="Sequence_35">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="sd:DataTable" Name="dt_AppxAMain" />
                   <Variable x:TypeArguments="sd:DataTable" Name="dt_AppxAOutletCode" />
@@ -547,13 +547,13 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ueab:ExcelApplicationCard sap2010:Annotation.AnnotationText="paste part" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="592,6923.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_3" ResizeWindow="None" WorkbookPath="[In_Config(&quot;Reconciliation Folder Path&quot;)+&quot;\&quot;+In_ReconciliationFileName]">
+                <ueab:ExcelApplicationCard sap2010:Annotation.AnnotationText="paste part" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="592,6867.333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_3" ResizeWindow="None" WorkbookPath="[In_Config(&quot;Reconciliation Folder Path&quot;)+&quot;\&quot;+In_ReconciliationFileName]">
                   <ueab:ExcelApplicationCard.Body>
                     <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="590,6670" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="590,6614" sap2010:WorkflowViewState.IdRef="Sequence_10">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="OutletCodeColumnLetter" />
                           <Variable x:TypeArguments="sd:DataTable" Name="dt_AppxATemplateHeaders" />
@@ -623,7 +623,7 @@
                             </scg:List>
                           </ui:MultipleAssign.AssignOperations>
                         </ui:MultipleAssign>
-                        <Sequence DisplayName="preparing appendix A for pasting" sap:VirtualizedContainerService.HintSize="556,3442" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                        <Sequence DisplayName="preparing appendix A for pasting" sap:VirtualizedContainerService.HintSize="556,3582" sap2010:WorkflowViewState.IdRef="Sequence_57">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="sd:DataTable" Name="dt_TransposedAppxATemplateData" />
                             <Variable x:TypeArguments="sd:DataTable" Name="dt_TransposedAppxATemplateRemarks" />
@@ -846,14 +846,14 @@
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:ForEachRow>
                           </Sequence>
-                          <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="sort by outlet code then order date" Code="Dim dt_Sorted As System.Data.DataTable = dt_AppxATemplateData.Clone()&#xA;Dim sortedRows = dt_AppxATemplateData.AsEnumerable().OrderBy(Function(r) r(&quot;Outlet Code&quot;).ToString()).ThenBy(Function(r) r(&quot;Order Date&quot;).ToString()).ToList()&#xA;For Each row In sortedRows&#xA;    dt_Sorted.ImportRow(row)&#xA;Next&#xA;dt_AppxATemplateData = dt_Sorted" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="522,88" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
+                          <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="sort by outlet code then order date" Code="Dim dt_Sorted As System.Data.DataTable = dt_AppxATemplateData.Clone()&#xD;&#xA;Dim sortedRows = dt_AppxATemplateData.AsEnumerable() _&#xD;&#xA;    .OrderBy(Function(r) r(&quot;Outlet Code&quot;).ToString().Trim()) _&#xD;&#xA;    .ThenBy(Function(r) If(IsDate(r(&quot;Order Date&quot;).ToString()), CDate(r(&quot;Order Date&quot;).ToString()), DateTime.MinValue)) _&#xD;&#xA;    .ToList()&#xD;&#xA;For Each row In sortedRows&#xD;&#xA;    dt_Sorted.ImportRow(row)&#xD;&#xA;Next&#xD;&#xA;dt_AppxATemplateData = dt_Sorted" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="522,228" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
                             <ui:InvokeCode.Arguments>
                               <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt_AppxATemplateData">[dt_AppxATemplateData]</InOutArgument>
                             </ui:InvokeCode.Arguments>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
@@ -1063,7 +1063,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:ForEachRow>
-                          <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="sort by outlet code then order date" Code="Dim dt_Sorted As System.Data.DataTable = dt_AppxBTemplateData.Clone()&#xA;Dim sortedRows = dt_AppxBTemplateData.AsEnumerable().OrderBy(Function(r) r(&quot;Outlet Code&quot;).ToString()).ThenBy(Function(r) r(&quot;Invoice Date&quot;).ToString()).ToList()&#xA;For Each row In sortedRows&#xA;    dt_Sorted.ImportRow(row)&#xA;Next&#xA;dt_AppxBTemplateData = dt_Sorted" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="416,228" sap2010:WorkflowViewState.IdRef="InvokeCode_7">
+                          <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="sort by outlet code then order date" Code="Dim dt_Sorted As System.Data.DataTable = dt_AppxBTemplateData.Clone()&#xD;&#xA;Dim sortedRows = dt_AppxBTemplateData.AsEnumerable() _&#xD;&#xA;    .OrderBy(Function(r) r(&quot;Outlet Code&quot;).ToString().Trim()) _&#xD;&#xA;    .ThenBy(Function(r) If(IsDate(r(&quot;Invoice Date&quot;).ToString()), CDate(r(&quot;Invoice Date&quot;).ToString()), DateTime.MinValue)) _&#xD;&#xA;    .ToList()&#xD;&#xA;For Each row In sortedRows&#xD;&#xA;    dt_Sorted.ImportRow(row)&#xD;&#xA;Next&#xD;&#xA;dt_AppxBTemplateData = dt_Sorted" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="416,228" sap2010:WorkflowViewState.IdRef="InvokeCode_7">
                             <ui:InvokeCode.Arguments>
                               <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt_AppxBTemplateData">[dt_AppxBTemplateData]</InOutArgument>
                             </ui:InvokeCode.Arguments>
@@ -1077,27 +1077,6 @@
                           </ui:InvokeCode>
                           <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Outlet Code" DataTable="[dt_AppxBTemplateData]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="416,214" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_3" />
                         </Sequence>
-                        <ui:FilterDataTable DataTable="[dt_AppxBTemplateData]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="556,196" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[dt_AppxBTemplateData]" SelectColumnsMode="Remove">
-                          <ui:FilterDataTable.Filters>
-                            <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
-                              <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="NOTEMPTY">
-                                <ui:FilterOperationArgument.Column>
-                                  <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
-                                </ui:FilterOperationArgument.Column>
-                              </ui:FilterOperationArgument>
-                              <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="NOTEMPTY">
-                                <ui:FilterOperationArgument.Column>
-                                  <InArgument x:TypeArguments="x:Int32">[1]</InArgument>
-                                </ui:FilterOperationArgument.Column>
-                              </ui:FilterOperationArgument>
-                            </scg:List>
-                          </ui:FilterDataTable.Filters>
-                          <ui:FilterDataTable.SelectColumns>
-                            <scg:List x:TypeArguments="InArgument" Capacity="4">
-                              <x:Null />
-                            </scg:List>
-                          </ui:FilterDataTable.SelectColumns>
-                        </ui:FilterDataTable>
                         <ueab:WriteRangeX sap2010:Annotation.AnnotationText="Pasting appendix B data in reconciliation file" Destination="[Excel.Sheet(&quot;Foodpanda Appx B&quot;)]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="556,246" sap2010:WorkflowViewState.IdRef="WriteRangeX_1" IgnoreEmptySource="False" Source="[dt_AppxBTemplateData]">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
