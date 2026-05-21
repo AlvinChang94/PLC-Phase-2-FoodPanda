@@ -112,7 +112,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="902,682.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="801,683" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="OutConfig" />
       <Variable x:TypeArguments="x:Int32" Name="Benchmark_Year" />
@@ -126,7 +126,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Flowchart sap:VirtualizedContainerService.HintSize="634,660" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart sap:VirtualizedContainerService.HintSize="807,558.6566666666666" sap2010:WorkflowViewState.IdRef="Flowchart_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -137,9 +137,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Flowchart.StartNode>
-        <x:Reference>__ReferenceID6</x:Reference>
+        <x:Reference>__ReferenceID8</x:Reference>
       </Flowchart.StartNode>
-      <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+      <FlowStep x:Name="__ReferenceID8" sap2010:WorkflowViewState.IdRef="FlowStep_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">135,15</av:Point>
@@ -147,7 +147,7 @@
             <av:PointCollection x:Key="ConnectorLocation">245,50 275,50</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence sap2010:Annotation.AnnotationText="Read config excel file, then generate config dictionary" DisplayName="Config File Sequence" sap:VirtualizedContainerService.HintSize="1146.6666666666667,3868" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence sap2010:Annotation.AnnotationText="Read config excel file, then generate config dictionary" DisplayName="Config File Sequence" sap:VirtualizedContainerService.HintSize="1146.5,3865.5" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="ConfigDT" />
             <Variable x:TypeArguments="upr:IResource" Name="ConfigFile" />
@@ -159,7 +159,7 @@
               <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:MultipleAssign sap2010:Annotation.AnnotationText="Assign RPA Configurations excel file to a variable&#xA;&#xA;Assign the sheet of the excel file to a variable" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1112.6666666666667,241.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+          <ui:MultipleAssign sap2010:Annotation.AnnotationText="Assign RPA Configurations excel file to a variable&#xA;&#xA;Assign the sheet of the excel file to a variable" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1112.5,241.5" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -167,7 +167,7 @@
                     <OutArgument x:TypeArguments="upr:IResource">[ConfigFile]</OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="upr:IResource">[LocalResource.FromPath("C:\RPA\RPA - PLCFoodPanda\RPA Configuration\RPA Config.xlsx")]</InArgument>
+                    <InArgument x:TypeArguments="upr:IResource">[LocalResource.FromPath("C:\Users\user\Documents\NYP Mods Y3S1\FYP\RPA Phase 2\RPA Configuration\RPA Config.xlsx")]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -188,7 +188,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:MultipleAssign>
-          <Assign sap2010:Annotation.AnnotationText="Create a new dictionary and initialize it" sap:VirtualizedContainerService.HintSize="1112.6666666666667,207.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign sap2010:Annotation.AnnotationText="Create a new dictionary and initialize it" sap:VirtualizedContainerService.HintSize="1112.5,207" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[OutConfig]</OutArgument>
             </Assign.To>
@@ -203,20 +203,20 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[ConfigDT]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="1112.6666666666667,229.33333333333334" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[ConfigSheet]" WorkbookPathResource="[ConfigFile]" />
-          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Loop through the contents of the data table" DataTable="[ConfigDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1112.6666666666667,503.3333333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+          <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[ConfigDT]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="1112.5,228.5" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[ConfigSheet]" WorkbookPathResource="[ConfigFile]" />
+          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Loop through the contents of the data table" DataTable="[ConfigDT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1112.5,502" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,288.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,288" sap2010:WorkflowViewState.IdRef="Sequence_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap2010:Annotation.AnnotationText="Assigns the 'Value' from the current row to the 'OutConfig' dictionary using the 'Key' from the current row as the dictionary key" sap:VirtualizedContainerService.HintSize="416,228.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign sap2010:Annotation.AnnotationText="Assigns the 'Value' from the current row to the 'OutConfig' dictionary using the 'Key' from the current row as the dictionary key" sap:VirtualizedContainerService.HintSize="416,228" sap2010:WorkflowViewState.IdRef="Assign_3">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[OutConfig(CurrentRow("Key").ToString)]</OutArgument>
                     </Assign.To>
@@ -678,7 +678,7 @@
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <av:Point x:Key="ShapeLocation">435,15</av:Point>
                     <av:Size x:Key="ShapeSize">110,70</av:Size>
-                    <av:PointCollection x:Key="ConnectorLocation">490,85 490,115 190,115 190,295</av:PointCollection>
+                    <av:PointCollection x:Key="ConnectorLocation">490,85 490,115</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <Sequence DisplayName="Rename Reconciliation File" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_74">
@@ -780,22 +780,250 @@
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="520,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_24" Message="[&quot;End of renaming recon file&quot;]" />
                 </Sequence>
                 <FlowStep.Next>
-                  <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+                  <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <av:Point x:Key="ShapeLocation">135,295</av:Point>
+                        <av:Point x:Key="ShapeLocation">435,115</av:Point>
                         <av:Size x:Key="ShapeSize">110,70</av:Size>
+                        <av:PointCollection x:Key="ConnectorLocation">490,185 490,205</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Foodpanda statement and Appx B - Invoke Workflow File (Foodpanda statement and Appx B.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Foodpanda statement and Appx B.xaml">
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="PLC sales Inv vs PLCpaymt - Invoke Workflow File (PLC sales Inv vs PLCpaymt.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="PLC sales Inv vs PLCpaymt.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Mapping">[dt_Mapping]</InArgument>
-                        <InArgument x:TypeArguments="x:Int32" x:Key="In_Benchmark_Month">[Benchmark_Month]</InArgument>
-                        <InArgument x:TypeArguments="x:Int32" x:Key="In_Benchmark_Year">[Benchmark_Year]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="In_ReconciliationFileName">[ReconciliationFileName]</InArgument>
                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="In_Config">[OutConfig]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="In_ReconciliationFileName">[ReconciliationFileName]</InArgument>
+                        <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Year">[Benchmark_Year]</InArgument>
+                        <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Month">[Benchmark_Month]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </ui:InvokeWorkflowFile>
+                    <FlowStep.Next>
+                      <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">435,205</av:Point>
+                            <av:Size x:Key="ShapeSize">110,70</av:Size>
+                            <av:PointCollection x:Key="ConnectorLocation">490,275 490,295</av:PointCollection>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence sap2010:Annotation.AnnotationText="Populate column A-F of 'PLC POS Sales' using 'PandaShopSalesBreakdown' file" DisplayName="PLC POS Sales" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_80">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="ConfigFile" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="PLC POS sales - Invoke Workflow File (PLC POS sales.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="PLC POS sales.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[OutConfig]</InArgument>
+                              <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Year">[Benchmark_Year]</InArgument>
+                              <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Month">[Benchmark_Month]</InArgument>
+                              <InArgument x:TypeArguments="x:String" x:Key="in_ReconciliationFileName">[ReconciliationFileName]</InArgument>
+                              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Mapping">[dt_Mapping]</InArgument>
+                            </ui:InvokeWorkflowFile.Arguments>
+                          </ui:InvokeWorkflowFile>
+                        </Sequence>
+                        <FlowStep.Next>
+                          <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">435,295</av:Point>
+                                <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">435,330 385,330</av:PointCollection>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence sap2010:Annotation.AnnotationText="Populate column A-H of 'UOB Bank' using 'Account Statements' file" DisplayName="UOB Bank" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_81">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:String" Name="ConfigFile" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="UOB Bank - Invoke Workflow File (UOB Bank.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="UOB Bank.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="In_Config">[OutConfig]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="In_ReconciliationFileName">[ReconciliationFileName]</InArgument>
+                                  <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Year">[Benchmark_Year]</InArgument>
+                                  <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Month">[Benchmark_Month]</InArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:InvokeWorkflowFile>
+                            </Sequence>
+                            <FlowStep.Next>
+                              <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_2">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <av:Point x:Key="ShapeLocation">275,295</av:Point>
+                                    <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                    <av:PointCollection x:Key="ConnectorLocation">275,330 245,330</av:PointCollection>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Sequence sap2010:Annotation.AnnotationText="Populate cell B4 of 'SUMMARY' tab with benchmark year and month&#xA;Populate 'RECON' tab columns D, E, Y, Z, N" DisplayName="Summary &amp; Recon" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_82">
+                                  <Sequence.Variables>
+                                    <Variable x:TypeArguments="x:String" Name="ConfigFile" />
+                                  </Sequence.Variables>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Summary &amp; Recon - Invoke Workflow File (Summary &amp; Recon.xaml)" sap:VirtualizedContainerService.HintSize="432.5,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Summary &amp; Recon.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Month">[Benchmark_Month]</InArgument>
+                                      <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Year">[Benchmark_Year]</InArgument>
+                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="In_Config">[OutConfig]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_ReconciliationFileName">[ReconciliationFileName]</InArgument>
+                                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Mapping">[dt_Mapping]</InArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                  </ui:InvokeWorkflowFile>
+                                </Sequence>
+                                <FlowStep.Next>
+                                  <FlowStep x:Name="__ReferenceID7" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <av:Point x:Key="ShapeLocation">135,295</av:Point>
+                                        <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                        <av:PointCollection x:Key="ConnectorLocation">190,365 190,395</av:PointCollection>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Foodpanda statement and Appx B - Invoke Workflow File (Foodpanda statement and Appx B.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Foodpanda statement and Appx B.xaml">
+                                      <ui:InvokeWorkflowFile.Arguments>
+                                        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Mapping">[dt_Mapping]</InArgument>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="In_Benchmark_Month">[Benchmark_Month]</InArgument>
+                                        <InArgument x:TypeArguments="x:Int32" x:Key="In_Benchmark_Year">[Benchmark_Year]</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="In_ReconciliationFileName">[ReconciliationFileName]</InArgument>
+                                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="In_Config">[OutConfig]</InArgument>
+                                      </ui:InvokeWorkflowFile.Arguments>
+                                    </ui:InvokeWorkflowFile>
+                                    <FlowStep.Next>
+                                      <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <av:Point x:Key="ShapeLocation">135,395</av:Point>
+                                            <av:Size x:Key="ShapeSize">110,70</av:Size>
+                                            <av:PointCollection x:Key="ConnectorLocation">798.5,258.8133333333333 838.5,258.8133333333333</av:PointCollection>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Automation completed" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_88">
+                                          <Sequence.Variables>
+                                            <Variable x:TypeArguments="x:String" Name="OutputReconFolder" />
+                                            <Variable x:TypeArguments="x:String" Name="OutputFoodPandaFolder" />
+                                            <Variable x:TypeArguments="x:String" Name="Timestamp" />
+                                          </Sequence.Variables>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Moving files into output folder&quot;]" />
+                                          <Assign sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="Assign_69">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[Timestamp]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">[Now.ToString("(dd-MMM-yyyy) (HH.mm.ss tt)")]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="Assign_70">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[OutputFoodPandaFolder]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">[Path.Combine(OutConfig("Output Folder Path").ToString, "Food Panda Reconciliation " + Timestamp)]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="Assign_71">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[OutputReconFolder]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">[Path.Combine(OutputFoodPandaFolder, "Updated Recon File")]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="452,123.5" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[OutputReconFolder]" />
+                                          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="452,378.5" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[Directory.GetFiles(OutConfig(&quot;FoodPanda Statements Folder Path&quot;).ToString)]">
+                                            <ui:ForEach.Body>
+                                              <ActivityAction x:TypeArguments="x:String">
+                                                <ActivityAction.Argument>
+                                                  <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
+                                                </ActivityAction.Argument>
+                                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,247" sap2010:WorkflowViewState.IdRef="Sequence_89">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[OutputFoodPandaFolder]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="416,187" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[currentText]" />
+                                                </Sequence>
+                                              </ActivityAction>
+                                            </ui:ForEach.Body>
+                                          </ui:ForEach>
+                                          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="452,378.5" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[Directory.GetFiles(OutConfig(&quot;POS Folder Path&quot;).ToString)]">
+                                            <ui:ForEach.Body>
+                                              <ActivityAction x:TypeArguments="x:String">
+                                                <ActivityAction.Argument>
+                                                  <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
+                                                </ActivityAction.Argument>
+                                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,247" sap2010:WorkflowViewState.IdRef="Sequence_90">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[OutputFoodPandaFolder]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="416,187" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="[currentText]" />
+                                                </Sequence>
+                                              </ActivityAction>
+                                            </ui:ForEach.Body>
+                                          </ui:ForEach>
+                                          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="452,378.5" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[Directory.GetFiles(OutConfig(&quot;Bank Statement Folder Path&quot;).ToString)]">
+                                            <ui:ForEach.Body>
+                                              <ActivityAction x:TypeArguments="x:String">
+                                                <ActivityAction.Argument>
+                                                  <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
+                                                </ActivityAction.Argument>
+                                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,247" sap2010:WorkflowViewState.IdRef="Sequence_91">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[OutputFoodPandaFolder]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="416,187" sap2010:WorkflowViewState.IdRef="MoveFile_4" Overwrite="True" Path="[currentText]" />
+                                                </Sequence>
+                                              </ActivityAction>
+                                            </ui:ForEach.Body>
+                                          </ui:ForEach>
+                                          <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[OutputReconFolder]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="452,196" sap2010:WorkflowViewState.IdRef="MoveFile_3" Overwrite="True" Path="[Path.Combine(OutConfig(&quot;Reconciliation Folder Path&quot;).ToString, ReconciliationFileName)]" />
+                                          <ui:KillProcess Process="{x:Null}" AppliesTo="All" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="excel" />
+                                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:01:00" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="452,114.5" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[&quot;Automation completed&quot;]" />
+                                        </Sequence>
+                                      </FlowStep>
+                                    </FlowStep.Next>
+                                  </FlowStep>
+                                </FlowStep.Next>
+                              </FlowStep>
+                            </FlowStep.Next>
+                          </FlowStep>
+                        </FlowStep.Next>
+                      </FlowStep>
+                    </FlowStep.Next>
                   </FlowStep>
                 </FlowStep.Next>
               </FlowStep>
@@ -825,236 +1053,12 @@
       </FlowStep>
       <x:Reference>__ReferenceID0</x:Reference>
       <x:Reference>__ReferenceID1</x:Reference>
-      <FlowStep sap2010:WorkflowViewState.IdRef="FlowStep_4">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">435,115</av:Point>
-            <av:Size x:Key="ShapeSize">110,70</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">490,185 490,205</av:PointCollection>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="PLC sales Inv vs PLCpaymt - Invoke Workflow File (PLC sales Inv vs PLCpaymt.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="PLC sales Inv vs PLCpaymt.xaml">
-          <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="In_Config">[OutConfig]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="In_ReconciliationFileName">[ReconciliationFileName]</InArgument>
-            <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Year">[Benchmark_Year]</InArgument>
-            <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Month">[Benchmark_Month]</InArgument>
-          </ui:InvokeWorkflowFile.Arguments>
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-        </ui:InvokeWorkflowFile>
-        <FlowStep.Next>
-          <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_2">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <av:Point x:Key="ShapeLocation">435,205</av:Point>
-                <av:Size x:Key="ShapeSize">110,70</av:Size>
-                <av:PointCollection x:Key="ConnectorLocation">490,275 490,295</av:PointCollection>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <Sequence sap2010:Annotation.AnnotationText="Populate column A-F of 'PLC POS Sales' using 'PandaShopSalesBreakdown' file" DisplayName="PLC POS Sales" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_80">
-              <Sequence.Variables>
-                <Variable x:TypeArguments="x:String" Name="ConfigFile" />
-              </Sequence.Variables>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="PLC POS sales - Invoke Workflow File (PLC POS sales.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="PLC POS sales.xaml">
-                <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Config">[OutConfig]</InArgument>
-                  <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Year">[Benchmark_Year]</InArgument>
-                  <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Month">[Benchmark_Month]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_ReconciliationFileName">[ReconciliationFileName]</InArgument>
-                  <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Mapping">[dt_Mapping]</InArgument>
-                </ui:InvokeWorkflowFile.Arguments>
-              </ui:InvokeWorkflowFile>
-            </Sequence>
-            <FlowStep.Next>
-              <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_1">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <av:Point x:Key="ShapeLocation">435,295</av:Point>
-                    <av:Size x:Key="ShapeSize">110,70</av:Size>
-                    <av:PointCollection x:Key="ConnectorLocation">435,330 385,330</av:PointCollection>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <Sequence sap2010:Annotation.AnnotationText="Populate column A-H of 'UOB Bank' using 'Account Statements' file" DisplayName="UOB Bank" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_81">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="x:String" Name="ConfigFile" />
-                  </Sequence.Variables>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="UOB Bank - Invoke Workflow File (UOB Bank.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="UOB Bank.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="In_Config">[OutConfig]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="In_ReconciliationFileName">[ReconciliationFileName]</InArgument>
-                      <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Year">[Benchmark_Year]</InArgument>
-                      <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Month">[Benchmark_Month]</InArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </ui:InvokeWorkflowFile>
-                </Sequence>
-                <FlowStep.Next>
-                  <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_2">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <av:Point x:Key="ShapeLocation">275,295</av:Point>
-                        <av:Size x:Key="ShapeSize">110,70</av:Size>
-                        <av:PointCollection x:Key="ConnectorLocation">275,330 245,330</av:PointCollection>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <Sequence sap2010:Annotation.AnnotationText="Populate cell B4 of 'SUMMARY' tab with benchmark year and month&#xA;Populate 'RECON' tab columns D, E, Y, Z, N" DisplayName="Summary &amp; Recon" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_82">
-                      <Sequence.Variables>
-                        <Variable x:TypeArguments="x:String" Name="ConfigFile" />
-                      </Sequence.Variables>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="Summary &amp; Recon - Invoke Workflow File (Summary &amp; Recon.xaml)" sap:VirtualizedContainerService.HintSize="432.5,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Summary &amp; Recon.xaml">
-                        <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Month">[Benchmark_Month]</InArgument>
-                          <InArgument x:TypeArguments="x:Int32" x:Key="in_Benchmark_Year">[Benchmark_Year]</InArgument>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="In_Config">[OutConfig]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_ReconciliationFileName">[ReconciliationFileName]</InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Mapping">[dt_Mapping]</InArgument>
-                        </ui:InvokeWorkflowFile.Arguments>
-                      </ui:InvokeWorkflowFile>
-                    </Sequence>
-                    <FlowStep.Next>
-                      <x:Reference>__ReferenceID2</x:Reference>
-                    </FlowStep.Next>
-                  </FlowStep>
-                </FlowStep.Next>
-              </FlowStep>
-            </FlowStep.Next>
-          </FlowStep>
-        </FlowStep.Next>
-      </FlowStep>
+      <x:Reference>__ReferenceID2</x:Reference>
       <x:Reference>__ReferenceID3</x:Reference>
       <x:Reference>__ReferenceID4</x:Reference>
       <x:Reference>__ReferenceID5</x:Reference>
-      <FlowStep sap2010:WorkflowViewState.IdRef="FlowStep_1">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">135,395</av:Point>
-            <av:Size x:Key="ShapeSize">110,70</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">798.5,258.8133333333333 838.5,258.8133333333333</av:PointCollection>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Automation completed" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_88">
-          <Sequence.Variables>
-            <Variable x:TypeArguments="x:String" Name="OutputReconFolder" />
-            <Variable x:TypeArguments="x:String" Name="OutputFoodPandaFolder" />
-            <Variable x:TypeArguments="x:String" Name="Timestamp" />
-          </Sequence.Variables>
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Moving files into output folder&quot;]" />
-          <Assign sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="Assign_69">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[Timestamp]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[Now.ToString("(dd-MMM-yyyy) (HH.mm.ss tt)")]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="Assign_70">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[OutputFoodPandaFolder]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[Path.Combine(OutConfig("Output Folder Path").ToString, "Food Panda Reconciliation " + Timestamp)]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="Assign_71">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[OutputReconFolder]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[Path.Combine(OutputFoodPandaFolder, "Updated Recon File")]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="452,123.5" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[OutputReconFolder]" />
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="452,378.5" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[Directory.GetFiles(OutConfig(&quot;FoodPanda Statements Folder Path&quot;).ToString)]">
-            <ui:ForEach.Body>
-              <ActivityAction x:TypeArguments="x:String">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,247" sap2010:WorkflowViewState.IdRef="Sequence_89">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[OutputFoodPandaFolder]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="416,187" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[currentText]" />
-                </Sequence>
-              </ActivityAction>
-            </ui:ForEach.Body>
-          </ui:ForEach>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="452,378.5" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[Directory.GetFiles(OutConfig(&quot;POS Folder Path&quot;).ToString)]">
-            <ui:ForEach.Body>
-              <ActivityAction x:TypeArguments="x:String">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,247" sap2010:WorkflowViewState.IdRef="Sequence_90">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[OutputFoodPandaFolder]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="416,187" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="[currentText]" />
-                </Sequence>
-              </ActivityAction>
-            </ui:ForEach.Body>
-          </ui:ForEach>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText" sap:VirtualizedContainerService.HintSize="452,378.5" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[Directory.GetFiles(OutConfig(&quot;Bank Statement Folder Path&quot;).ToString)]">
-            <ui:ForEach.Body>
-              <ActivityAction x:TypeArguments="x:String">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,247" sap2010:WorkflowViewState.IdRef="Sequence_91">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[OutputFoodPandaFolder]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="416,187" sap2010:WorkflowViewState.IdRef="MoveFile_4" Overwrite="True" Path="[currentText]" />
-                </Sequence>
-              </ActivityAction>
-            </ui:ForEach.Body>
-          </ui:ForEach>
-          <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[OutputReconFolder]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="452,196" sap2010:WorkflowViewState.IdRef="MoveFile_3" Overwrite="True" Path="[Path.Combine(OutConfig(&quot;Reconciliation Folder Path&quot;).ToString, ReconciliationFileName)]" />
-          <ui:KillProcess Process="{x:Null}" AppliesTo="All" ContinueOnError="True" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="452,176" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="excel" />
-          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:01:00" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="452,114.5" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[&quot;Automation completed&quot;]" />
-        </Sequence>
-      </FlowStep>
-      <x:Reference>__ReferenceID2</x:Reference>
+      <x:Reference>__ReferenceID6</x:Reference>
+      <x:Reference>__ReferenceID7</x:Reference>
     </Flowchart>
   </Sequence>
 </Activity>
